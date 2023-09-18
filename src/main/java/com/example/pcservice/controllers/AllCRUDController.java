@@ -137,10 +137,12 @@ public class AllCRUDController {
 
     @GetMapping("/orders/new")
     public String newEntityOrders(@ModelAttribute("order") Order entity, Model model) {
-        model.addAttribute("pcs", clientPCClient.findAll());
-
         List<User> employees = userClient.findAll().stream().filter(u -> u.getRole().getName().equals("EMPLOYEE")).toList();
+        if (employees.isEmpty())
+            throw new IllegalArgumentException("Сначала создайте хотя бы одного сотрудника!");
         model.addAttribute("employees", employees);
+
+        model.addAttribute("pcs", clientPCClient.findAll());
 
         model.addAttribute("ordertypes", orderTypeClient.findAll());
         model.addAttribute("orderstatuses", orderStatusClient.findAll());
@@ -168,15 +170,21 @@ public class AllCRUDController {
 
     @GetMapping("/orders/{id}/edit")
     public String editOrders(Model model, @PathVariable("id") long id) {
-        model.addAttribute("pcs", clientPCClient.findAll());
-
         List<User> employees = userClient.findAll().stream().filter(u -> u.getRole().getName().equals("EMPLOYEE")).toList();
+        if (employees.isEmpty())
+            throw new IllegalArgumentException("Сначала создайте хотя бы одного сотрудника!");
         model.addAttribute("employees", employees);
+
+        model.addAttribute("pcs", clientPCClient.findAll());
 
         model.addAttribute("ordertypes", orderTypeClient.findAll());
         model.addAttribute("orderstatuses", orderStatusClient.findAll());
 
-        model.addAttribute("order", orderClient.findById(id));
+        Order order = orderClient.findById(id);
+        if (order.getEmployee() == null)
+            order.setEmployee(new User());
+
+        model.addAttribute("order", order);
         return "allcrud/orders/edit";
     }
 
