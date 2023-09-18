@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+          crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="/navbarCrud"></div>
+<div class="container mt-5">
+    <form th:method="put" th:action="@{/allcrud/users/{id}(id=${user.getId()})}" th:object="${user}">
+        <div class="input-group mb-3">
+            <span class="input-group-text">Username</span>
+            <input type="text" class="form-control" th:field="*{username}" th:value="${user.getUsername()}" name="username" id="username"/>
+            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="mx-2"></span>
+        </div>
+        <input type="text" class="form-control" th:field="*{password}" th:value="${user.getPassword()}" name="password" id="password" hidden="hidden"/>
+        <div class="input-group mb-3">
+            <span class="input-group-text">FIO</span>
+            <input type="text" class="form-control" th:field="*{FIO}" th:value="${user.getFIO()}" name="FIO" id="FIO"/>
+            <span th:if="${#fields.hasErrors('FIO')}" th:errors="*{FIO}" class="mx-2"></span>
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text">Role</span>
+            <select class="form-control" name="role">
+                <option th:each="role : ${roles}" th:text="${role.getName()}" th:value="${role.getId()}"
+                        th:selected="${user.getRole().equals(role)}"></option>
+            </select>
+        </div>
+
+        <input type="submit" value="Update!" class="form-control btn btn-primary"/>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+</html>

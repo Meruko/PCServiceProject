@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+          crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="/navbarEmp"></div>
+<div class="container mt-5">
+    <div class="row justify-content-center my-5">
+        <div class="card col-2 mx-5" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Доступные Заказы</h5>
+                <a href="/orderEmps/processing" class="btn btn-primary">Go</a>
+            </div>
+        </div>
+        <div class="card col-2 mx-5" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Выполняемые Заказы</h5>
+                <a href="/orderEmps/process" class="btn btn-primary">Go</a>
+            </div>
+        </div>
+        <div class="card col-2 mx-5" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Выполненные Заказы</h5>
+                <a href="/orderEmps/completed" class="btn btn-primary">Go</a>
+            </div>
+        </div>
+        <div class="card col-2 mx-5 my-4" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Отменённые Заказы</h5>
+                <a href="/orderEmps/cancelled" class="btn btn-primary">Go</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+</html>

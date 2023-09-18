@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+          crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="/navbarCrud"></div>
+<div class="container mt-5">
+    <div class="row justify-content-center my-5">
+        <div class="card col-2 mx-5" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Пользователи</h5>
+                <a href="/allcrud/users" class="btn btn-primary">Go</a>
+            </div>
+        </div>
+        <div class="card col-2 mx-5" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Заказы</h5>
+                <a href="/allcrud/orders" class="btn btn-primary">Go</a>
+            </div>
+        </div>
+        <div class="card col-2 mx-5" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Компьютеры</h5>
+                <a href="/allcrud/pcs" class="btn btn-primary">Go</a>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center my-5">
+        <div class="card col-2 mx-5" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Типы заказов</h5>
+                <a href="/allcrud/ordertypes" class="btn btn-primary">Go</a>
+            </div>
+        </div>
+        <div class="card col-2 mx-5" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Статусы заказов</h5>
+                <a href="/allcrud/orderstatuses" class="btn btn-primary">Go</a>
+            </div>
+        </div>
+        <div class="card col-2 mx-5" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Типы компьютеров</h5>
+                <a href="/allcrud/pctypes" class="btn btn-primary">Go</a>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center my-5">
+        <div class="card col-2 mx-5" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Марки компьютеров</h5>
+                <a href="/allcrud/pcmarks" class="btn btn-primary">Go</a>
+            </div>
+        </div>
+        <div class="card col-2 mx-5" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Роли</h5>
+                <a href="/allcrud/roles" class="btn btn-primary">Go</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+</html>
