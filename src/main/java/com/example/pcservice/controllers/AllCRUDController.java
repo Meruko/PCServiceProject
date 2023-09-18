@@ -173,6 +173,7 @@ public class AllCRUDController {
         List<User> employees = userClient.findAll().stream().filter(u -> u.getRole().getName().equals("EMPLOYEE")).toList();
         if (employees.isEmpty())
             throw new IllegalArgumentException("Сначала создайте хотя бы одного сотрудника!");
+
         model.addAttribute("employees", employees);
 
         model.addAttribute("pcs", clientPCClient.findAll());
